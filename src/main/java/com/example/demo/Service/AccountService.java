@@ -23,7 +23,7 @@ public class AccountService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Account account = iAccountRepo.findByUsername(username);
         if (account != null) {
-//            new User(account.getUsername(), account.getPassword(), .account.getRoles());
+          return new User(account.getUsername(), account.getPassWord(),account.getRoles());
         }
         return null;
     }

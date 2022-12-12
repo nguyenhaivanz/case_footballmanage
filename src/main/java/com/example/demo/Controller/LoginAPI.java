@@ -32,10 +32,9 @@ public class LoginAPI {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody Account accountEntity) {
+    public ResponseEntity<String> login(@RequestBody Account account) {
         try {
-            Authentication authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(accountEntity.getUsername(), accountEntity.getPassword()));
+            Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(account.getUsername(), account.getPassword()));
             SecurityContextHolder.getContext().setAuthentication(authentication);
             String token = jwtService.createToken(authentication);
             return new ResponseEntity<>(token, HttpStatus.OK);

@@ -44,10 +44,6 @@ public class Account {
 
     public Account() {
     }
-//
-//    public Account(String username, String password, List<Rolers> roles) {
-//        this.username = username;
-//        this.password = password;
-//        this.roles = roles;
-//    }
+
+
 }
